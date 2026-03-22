@@ -1,5 +1,23 @@
-<div class="search-container">
+<form class="formulari-cerca" (ngSubmit)="cercar()" #formCerca="ngForm">
   <input type="text"
-         placeholder="Buscant asset"
-         (input)="handleInput($event)">
-</div>
+         name="cerca"
+         [(ngModel)]="textCerca"
+         #campCerca="ngModel"
+         minlength="3"
+         required
+         placeholder="Mínim 3 caràcters...">
+
+  <button type="submit" [disabled]="formCerca.invalid">
+    Cercar
+  </button>
+
+  <button type="button" (click)="netejar()">
+    Netejar
+  </button>
+
+  <div *ngIf="campCerca.invalid && campCerca.touched">
+    <small *ngIf="campCerca.errors?.['minlength']">
+      Cal un mínim de 3 caràcters.
+    </small>
+  </div>
+</form>
