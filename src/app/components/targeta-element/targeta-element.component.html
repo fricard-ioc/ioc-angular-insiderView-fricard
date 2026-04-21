@@ -1,10 +1,17 @@
 <div class="targeta-element">
-  <h3>{{ element.titol }}</h3>
+  <div class="capcalera">
+    <h3>{{ element.titol }} ( Ticker:{{ element.ticker }})</h3> 
+    
+    <button class="btn-estrella" (click)="togglePreferit()">
+      <span *ngIf="preferitsService.esPreferit(element.id)">★</span>
+      <span *ngIf="!preferitsService.esPreferit(element.id)">☆</span>
+    </button>
+  </div>
+  
+  <p class="categoria" *ngIf="element.categoria">{{ element.categoria }}</p>
+  <p class="preu">Preu: {{ element.preu }} {{ element.moneda }}</p>
 
-  <p>Ticker: {{ element.ticker }}</p>
-  <p>Preu: {{ element.preu }} {{ element.moneda }}</p>
-
-  <span *ngIf="element.activitatRecent">
+  <span class="insider-alert" *ngIf="element.activitatRecent">
     🔥 Activitat Insider Recent
   </span>
 </div>
