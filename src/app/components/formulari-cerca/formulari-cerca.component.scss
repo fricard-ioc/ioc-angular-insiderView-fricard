@@ -1,0 +1,50 @@
+.buscador-basic {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.caixa-input {
+  display: inline-block;
+}
+
+.input {
+  padding: 8px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-borde {
+  border: 2px solid red;
+  background-color: #ffe6e6;
+}
+
+.btn-borrar {
+  margin-left: 5px;
+  padding: 8px 12px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-borrar:hover {
+  background-color: #ccc;
+}
+
+.text-carregatn {
+  color: blue;
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.caixa-errors p {
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
