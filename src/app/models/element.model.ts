@@ -8,9 +8,10 @@ export interface ElementApiResponse {
   popular: boolean;
   stock: number;
 
+  // Camps propis i retrocompatiblitat
   ticker: string;
   moneda: string;
-  activitat_recent: boolean;
+  activitatRecent?: boolean;
 }
 
 export interface ElementCataleg {
@@ -21,9 +22,10 @@ export interface ElementCataleg {
   preu: number;
   imatgeUrl: string;
   esPopular: boolean;
-  unitats: number; 
+  unitats: number;
 
+  // Camps propis i retrocompatiblitat
   ticker: string;
   moneda: string;
-  activitatRecent: boolean;
+  activitatRecent?: boolean;
 }
