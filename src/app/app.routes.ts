@@ -4,13 +4,14 @@ import { CercaComponent } from './pages/cerca/cerca.component';
 import { DetallComponent } from './pages/detall/detall.component';
 import { PreferitsComponent } from './pages/preferits/preferits.component';
 import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'cataleg', pathMatch: 'full' },
   { path: 'cataleg', component: CatalegComponent },
   { path: 'cerca', component: CercaComponent },
   { path: 'detall/:id', component: DetallComponent },
-  { path: 'preferits', component: PreferitsComponent }, // Es modificarà a l'exercici 3 (lazy load)
+  { path: 'preferits', component: PreferitsComponent, canActivate: [authGuard] }, // Es modificarà a l'exercici 3 (lazy load)
   { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'cataleg' }
 ];

@@ -1,1 +1,21 @@
-<p>Pàgina Login</p>
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px;">
+  <h2>Inici de Sessió</h2>
+
+  <form (ngSubmit)="onLogin()">
+    <p>
+      <label>Email: </label>
+      <input type="email" name="email" [(ngModel)]="email" required>
+    </p>
+
+    <p>
+      <label>Contrasenya: </label>
+      <input type="password" name="password" [(ngModel)]="contrasenya" required>
+    </p>
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p *ngIf="errorVisible" style="color: red;">
+    Credencials incorrectes.
+  </p>
+</div>

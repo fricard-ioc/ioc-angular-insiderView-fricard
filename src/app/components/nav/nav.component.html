@@ -2,5 +2,18 @@
   <a routerLink="/cataleg" routerLinkActive="actiu" [routerLinkActiveOptions]="{exact: true}" style="color: white; text-decoration: none;">Cataleg</a>
   <a routerLink="/cerca" routerLinkActive="actiu" style="color: white;  text-decoration: none;">Cerca</a>
   <a routerLink="/preferits" routerLinkActive="actiu" style="color: white; text-decoration: none;">Preferits</a>
-  <a routerLink="/login" routerLinkActive="actiu" style="color: white;  text-decoration: none; margin-left: auto;">Login</a>
+  
+  <div style="margin-left: auto; display: flex; gap: 10px; align-items: center;" *ngIf="usuari$ | async as user; else notLogged">
+
+    <span>Hola, {{ user.nom }}!</span>
+
+    <button (click)="logout()" style="padding: 5px 10px; background: #ff4444; color: white; border: none; border-radius: 3px; cursor: pointer;">
+      Tancar sessio
+    </button>
+
+  </div>
+
+  <ng-template #notLogged>
+    <a routerLink="/login" routerLinkActive="actiu" style="color: white; text-decoration: none; margin-left: auto;">Login</a>
+  </ng-template>
 </nav>
