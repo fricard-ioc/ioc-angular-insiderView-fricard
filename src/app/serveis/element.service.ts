@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ElementApiResponse, ElementCataleg } from '../models/element.model';
 import { adaptarElementsApi } from '../adaptadors/element.adaptador';
 import { finalize } from 'rxjs';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ElementService {
 
   private _elements = signal<ElementCataleg[]>([]);
   private _carregant = signal<boolean>(false);
-  private _error = signal<string | null>(null); 
+  private _error = signal<string | null>(null);
 
   public elements = this._elements.asReadonly();
   public carregant = this._carregant.asReadonly();
@@ -32,6 +32,24 @@ export class ElementService {
         },
         error: () => this._error.set('Error en carregar els elements populars. Reintenta-ho.')
       });
+  }
+
+  obtenirTots(): void {
+    this.prepareRequest();
+
+    this.http.get<ElementApiResponse[]>(this.apiUrl)
+      .pipe(finalize(() => this._carregant.set(false)))
+      .subscribe({
+        next: (data) => {
+          this._elements.set(adaptarElementsApi(data));
+          this._error.set(null);
+        },
+        error: () => this._error.set('Error en carregar el catàleg. Reintenta-ho.')
+      });
+  }
+
+  obtenirPerId(id: string) {
+    return this.http.get<ElementApiResponse>(`${this.apiUrl}/${id}`);
   }
 
   cercar(terme: string): void {

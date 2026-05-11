@@ -1,1 +1,15 @@
-<p>Pàgina catàleg</p>
+<div class="cataleg-container">
+  <h2>Catàleg d'Empreses</h2>
+
+  <div *ngIf="elementService.carregant()" class="loading-state">
+    <p>Carregant dades...</p>
+  </div>
+
+  <div *ngIf="elementService.error()" class="error-state">
+    <p style="color: red;">{{ elementService.error() }}</p>
+  </div>
+
+  <ng-container *ngIf="!elementService.carregant() && !elementService.error()">
+    <app-llista-elements [elements]="elementService.elements()"></app-llista-elements>
+  </ng-container>
+</div>

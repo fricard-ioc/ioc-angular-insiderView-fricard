@@ -14,4 +14,8 @@
   <span class="insider-alert" *ngIf="element.activitatRecent">
     🔥 Activitat Insider Recent
   </span>
+
+  <div style="margin-top: 15px;">
+    <a [routerLink]="['/detall', element.id]" style="color: #007bff; text-decoration: none;">Veure detalls</a>
+  </div>
 </div>

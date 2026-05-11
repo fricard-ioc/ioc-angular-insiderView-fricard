@@ -1,1 +1,22 @@
-<p>Pàgina Detall Empresa</p>
+<div *ngIf="carregant">
+  <p>Carregant dades...</p>
+</div>
+
+<div *ngIf="error">
+  <p>Error: No s'ha trobat l'empresa</p>
+  <a routerLink="/cataleg">Tornar al catàleg</a>
+</div>
+
+<div *ngIf="element">
+  <a routerLink="/cataleg">Tornar enrere</a>
+
+  <h1>{{ element.titol }}</h1>
+  <p><strong>Ticker:</strong> {{ element.ticker }}</p>
+
+  <img [src]="element.imatgeUrl" alt="Logo de {{ element.titol }}" width="150">
+
+  <h2>Categoria: {{ element.categoria }}</h2>
+  <p><strong>Preu:</strong> {{ element.preu }} {{ element.moneda }}</p>
+  <p><strong>Descripció:</strong> {{ element.descripcio }}</p>
+  <p><strong>Stock:</strong> {{ element.unitats }}</p>
+</div>
