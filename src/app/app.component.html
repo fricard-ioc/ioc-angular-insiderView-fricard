@@ -1,8 +1,16 @@
-<main id="main-content">
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #eee; border-radius: 10px">
-    <app-formulari-cerca></app-formulari-cerca>
-      <strong>⭐ Favorits: {{ preferitsService.totalPreferits() }}</strong>
-    </div>
-    <app-cataleg-page></app-cataleg-page>
+import { Routes } from '@angular/router';
+import { CatalegComponent } from './pages/cataleg/cataleg.component';
+import { CercaComponent } from './pages/cerca/cerca.component';
+import { DetallComponent } from './pages/detall/detall.component';
+import { PreferitsComponent } from './pages/preferits/preferits.component';
+import { LoginComponent } from './pages/login/login.component';
 
-</main>
+export const routes: Routes = [
+  { path: '', redirectTo: 'cataleg', pathMatch: 'full' },
+  { path: 'cataleg', component: CatalegComponent },
+  { path: 'cerca', component: CercaComponent },
+  { path: 'detall/:id', component: DetallComponent },
+  { path: 'preferits', component: PreferitsComponent }, // Es modificarà a l'exercici 3 (lazy load)
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: 'cataleg' }
+];

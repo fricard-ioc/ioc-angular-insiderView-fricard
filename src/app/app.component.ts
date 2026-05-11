@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { CatalegPageComponent } from './components/cataleg-page/cataleg-page.component';
-import { FormulariCercaComponent } from './components/formulari-cerca/formulari-cerca.component';
+import { RouterOutlet } from '@angular/router';
+import { NavComponent } from './components/nav/nav.component';
 import { inject } from '@angular/core';
 import { PreferitsService } from './serveis/preferits.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CatalegPageComponent, FormulariCercaComponent], 
+  imports: [RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
