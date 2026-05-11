@@ -1,28 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Element } from '../../models/element.model';
-import { ELEMENTS_MOCK } from '../../mocks/dades-mock';
 import { TargetaElementComponent } from '../targeta-element/targeta-element.component';
-import { BarraCercaComponent } from '../barra-cerca/barra-cerca.component';
+import { ElementCataleg } from '../../models/element.model';
 
 @Component({
   selector: 'app-llista-elements',
   standalone: true,
-  imports: [CommonModule, TargetaElementComponent, BarraCercaComponent],
-  templateUrl: './llista-elements.component.html'
+  imports: [CommonModule, TargetaElementComponent],
+  templateUrl: './llista-elements.component.html',
+  styleUrl: './llista-elements.component.scss'
 })
 export class LlistaElementsComponent {
-  elements: Element[] = ELEMENTS_MOCK;
-  filteredElements: Element[] = [...this.elements];
+  @Input({ required: true }) elements: ElementCataleg[] = [];
 
-  filterList(searchTerm: string): void {
-    this.filteredElements = this.elements.filter(el =>
-      el.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      el.ticker.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }
-  trackById(index: number, element: Element): string {
-    return element.id;
+  trackById(index: number, item: ElementCataleg): string {
+    return item.id;
   }
 
 }

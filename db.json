@@ -1,0 +1,30 @@
+{
+  "elements": [
+    {
+      "id": "1",
+      "nom": "Bitcoin",
+      "descripcio": "Criptomoneda principal",
+      "categoria": "Cripto",
+      "preu": 65000,
+      "imatge": "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+      "popular": true,
+      "stock": 0.5,
+      "ticker": "BTC",
+      "moneda": "USD",
+      "activitatRecent": true
+    },
+    {
+      "id": "2",
+      "nom": "MicroStrategy",
+      "descripcio": "Empresa de programari amb grans reserves de BTC",
+      "categoria": "Accions",
+      "preu": 1500,
+      "imatge": "https://logo.clearbit.com/microstrategy.com",
+      "popular": true,
+      "stock": 10,
+      "ticker": "MSTR",
+      "moneda": "USD",
+      "activitatRecent": false
+    }
+  ]
+}

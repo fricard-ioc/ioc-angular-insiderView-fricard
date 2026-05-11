@@ -1,19 +1,11 @@
-<div class="container">
-  <app-barra-cerca (onSearch)="filterList($event)"></app-barra-cerca>
-
-  <hr>
-
-  <div class="list" *ngIf="filteredElements.length > 0; else emptyList">
-
-    <targeta-element *ngFor="let item of filteredElements; trackBy: trackById"
-                         [element]="item">
-    </targeta-element>
-
-  </div>
-
-  <ng-template #emptyList>
-    <div class="empty-message">
-      <p>Sense resultats.</p>
-    </div>
-  </ng-template>
+<div class="graella" *ngIf="elements.length > 0; else emptyList">
+  <app-targeta-element *ngFor="let item of elements; trackBy: trackById"
+                       [element]="item">
+  </app-targeta-element>
 </div>
+
+<ng-template #emptyList>
+  <div class="empty-message">
+    <p>Sense resultats per a la cerca.</p>
+  </div>
+</ng-template>

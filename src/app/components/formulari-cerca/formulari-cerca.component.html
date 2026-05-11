@@ -1,0 +1,31 @@
+<div class="buscador-basic">
+
+  <div class="caixa-input">
+    <input type="text"
+           [formControl]="termeCerca"
+           placeholder="Cerca elements..."
+           class="input"
+           [class.error-borde]="termeCerca.invalid && termeCerca.touched">
+
+    <button *ngIf="termeCerca.value" (click)="netejar()" class="btn-borrar">
+      X
+    </button>
+  </div>
+
+  <p *ngIf="termeCerca.pending" class="text-carregatn">
+    Validant a l'API...
+  </p>
+
+  <div *ngIf="termeCerca.invalid && termeCerca.touched" class="caixa-errors">
+    <p *ngIf="termeCerca.hasError('minlength')">
+      Escriu almenys 2 lletres.
+    </p>
+    <p *ngIf="termeCerca.hasError('maxlength')">
+      Massa llarg (màxim 50)
+    </p>
+    <p *ngIf="termeCerca.hasError('sensResultats')">
+      No hi ha resultats.
+    </p>
+  </div>
+
+</div>
