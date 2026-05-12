@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ElementCataleg } from '../../models/element.model';
@@ -9,7 +9,8 @@ import { PreferitsService } from '../../serveis/preferits.service';
   standalone: true,
   templateUrl: './targeta-element.component.html',
   styleUrls: ['./targeta-element.component.scss'],
-  imports: [CommonModule, RouterLink]
+  imports: [CommonModule, RouterLink],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TargetaElementComponent {
   @Input({ required: true }) element!: ElementCataleg;

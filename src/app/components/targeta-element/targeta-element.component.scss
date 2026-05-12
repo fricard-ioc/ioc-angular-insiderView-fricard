@@ -1,25 +1,55 @@
 .targeta-element {
-  border: 1px solid black;
-  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px;
   margin-bottom: 10px;
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .capcalera {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.1em;
 }
 
 .btn-estrella {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 24px;
   color: gold;
   cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.categoria {
+  color: #666;
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+.preu {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 10px 0;
 }
 
 .insider-alert {
   color: red;
   font-weight: bold;
-  margin-top: 5px;
+  font-size: 0.9em;
+  background: #ffe6e6;
+  padding: 3px 8px;
+  border-radius: 5px;
+  display: inline-block;
 }

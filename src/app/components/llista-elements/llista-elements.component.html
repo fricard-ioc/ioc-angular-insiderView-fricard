@@ -1,7 +1,11 @@
-<div class="graella" *ngIf="elements.length > 0; else emptyList">
-  <app-targeta-element *ngFor="let item of elements; trackBy: trackById"
-                       [element]="item">
-  </app-targeta-element>
+<div *ngIf="elements.length > 0; else emptyList">
+
+  <cdk-virtual-scroll-viewport [itemSize]="altadaElement" style="height: 500px;">
+    <div *cdkVirtualFor="let element of elements" class="card-container">
+      <app-targeta-element [element]="element"></app-targeta-element>
+    </div>
+  </cdk-virtual-scroll-viewport>
+
 </div>
 
 <ng-template #emptyList>
