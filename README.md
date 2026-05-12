@@ -1,27 +1,48 @@
-# IocAngularInsiderViewFricard
+1.	Descripció del projecte — 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+2.	Mapa de rutes — 
 
-## Development server
+## Mapa de Rutes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+| Path | Component | Accés | Descripció |
+| --- | --- | --- | --- |
+| `/` | -> /cataleg | Públic | Redirixeixen al catàleg |
+| `/cataleg` | `CatalegComponent` | Públic | Catàleg principal de les empreses |
+| `/cerca` | `CercaComponent` | Públic | Pàgina per cercar empreses |
+| `/detall/:id` | `DetallComponent` | Públic | Mostra els detalls d'una empresa amb el parametre `:id` que s'obté amb `ActivatedRoute` |
+| `/preferits` | `PreferitsComponent` | Privat | Llista d'empreses preferides |
+| `/login` | `LoginComponent` | Públic | Login de sessió |
+| `**` (Wildcard) | -> /cataleg | Públic | Redirixeixen al catàleg les rutes no reconegudes |
+| --- | --- | --- | --- |
 
-## Code scaffolding
+3.	Instruccions d'execució en local:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+git clone [url-repositori]
 
-## Build
+cd [nom-projecte]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+npm install
 
-## Running unit tests
+ng serve
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+** Important: cal executar el servidor de dades amb
+npx json-server db.json
 
-## Running end-to-end tests
+# Obrir http://localhost:4200
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+4.	Build de producció — 
+Per compilar l'aplicació:
+ng build
 
-## Further help
+Per obtenir estadístiques del bundle:
+npm run build:stats
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Per analitzar el bundle:
+npx webpack-bundle-analyzer dist/ioc-angular-insider-view-fricard/stats.json
+
+Mida aproximada del bundle:
+Mida del bundle de producció obtinguda: 355.52 kB
+
+5.	Credencials de prova — 
+- **Email:** admin@test.com
+- **Contrasenya:** 1234
