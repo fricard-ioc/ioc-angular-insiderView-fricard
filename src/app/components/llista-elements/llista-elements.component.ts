@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TargetaElementComponent } from '../targeta-element/targeta-element.component';
 import { ElementCataleg } from '../../models/element.model';
+changeDetection: ChangeDetectionStrategy.OnPush
 
 @Component({
   selector: 'app-llista-elements',
